@@ -1,0 +1,36 @@
+{
+    "name": "williamsampaio/framework",
+    "description": "Framework de teste baseado no Slim Framework com algumas outras bibliotecas.",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "API\\": "api/",
+            "WEB\\": "web/",
+            "Middleware\\": "middlewares/"
+        },
+        "files": [
+            "sources/config.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "William Sampaio",
+            "email": "williambenjamimms97@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "robmorgan/phinx": "^0.12.9",
+        "coffeecode/datalayer": "^1.1",
+        "slim/slim": "^4.9",
+        "slim/psr7": "^1.5",
+        "tuupola/slim-jwt-auth": "^3.5",
+        "league/plates": "^3.4"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "@php -r \"file_exists('env.php') || copy('env.example.php', 'env.php');\""
+        ]
+    }
+}

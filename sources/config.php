@@ -1,0 +1,22 @@
+<?php
+
+require __DIR__ . '/../env.php';
+
+define("HELLO", getenv('HELLO'));
+
+define("DATA_LAYER_CONFIG", [
+    "driver"    => getenv('DB_DRIVER'),
+    "host"      => getenv('DB_HOST'),
+    "port"      => getenv('DB_PORT'),
+    "dbname"    => getenv('DB_NAME'),
+    "username"  => getenv('DB_USER'),
+    "passwd"    => getenv('DB_PASSWORD'),
+    "options"   => [
+        PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_OBJ,
+        PDO::ATTR_CASE => PDO::CASE_NATURAL
+    ]
+]);
+
+define('JWT_SECRET_KEY', getenv('JWT_SECRET_KEY'));
